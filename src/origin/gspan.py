@@ -5,6 +5,7 @@ import itertools
 import time
 
 import pandas as pd
+from tqdm import tqdm
 
 
 VACANT_EDGE_ID = -1
@@ -328,7 +329,7 @@ class gSpan(object):
                 for e in edges:
                     root[(v.vlb, e.elb, g.vertices[e.to].vlb)].append(PDFS(gid, e, None))
 
-        for vevlb, projected in root.items():
+        for vevlb, projected in tqdm(root.items(), desc="挖掘", total=len(root.keys())):
             self._DFScode.append(DFSedge(0, 1, vevlb))
             self._subgraph_mining(projected)
             self._DFScode.pop()
