@@ -10,6 +10,7 @@ def main():
     gs.run()
     print(datetime.now().timestamp() - start)
 
+# total: 221
 # 5000  27.08 s     51.48 s
 # 3000  34.38 s  	69.07 s
 # 1000  1 m 48 s    3 m 49 s
